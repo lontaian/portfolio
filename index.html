@@ -18,9 +18,12 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#003876',
+                        primary: '#7C3AED',
                         secondary: '#10B981',
-                        accent: '#F59E0B'
+                        accent: '#3B82F6',
+                        dark: '#0c0414',
+                        'dark-card': '#1c1528',
+                        'dark-hover': '#2a1f3d'
                     },
                     fontFamily: {
                         sans: ['Pretendard', 'Inter', 'system-ui', 'sans-serif']
@@ -36,6 +39,9 @@
     <style>
         .card-hover {
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         .card-hover:hover {
             transform: translateY(-4px);
@@ -45,6 +51,21 @@
         }
         .card-image {
             transition: transform 0.3s ease;
+        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .card-description {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.5rem;
+        }
+        .card-buttons {
+            margin-top: auto;
         }
         .tech-badge {
             @apply px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700;
@@ -68,21 +89,50 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="pt-32 pb-16 px-4 bg-gradient-to-br from-primary to-blue-800 text-white">
-        <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                Mobility & Transportation Tech
+    <!-- Hero Section - Dark Premium Theme -->
+    <header class="pt-32 pb-20 px-4 bg-dark text-white relative overflow-hidden">
+        <!-- Gradient Glow Effects -->
+        <div class="absolute top-[-20rem] right-[-10rem] w-96 h-96 bg-primary/30 rounded-full blur-[8rem]"></div>
+        <div class="absolute bottom-[-10rem] left-[-5rem] w-64 h-64 bg-accent/20 rounded-full blur-[6rem]"></div>
+
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 bg-dark-card rounded-full px-4 py-2 mb-8">
+                <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                <span class="text-sm text-gray-300">AI-Powered Vibe Coding</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+                경험은 깊고,<br>
+                <span class="text-primary">실행은 빠릅니다.</span>
             </h1>
-            <p class="text-xl text-blue-100 max-w-2xl mx-auto">
-                교통, 물류, 모빌리티 분야의 솔루션을 개발합니다.<br>
-                버스 노선 최적화부터 수소 인프라까지.
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-4">
+                26년 경력의 CTO/COO가 전략 구상에서 MVP 실행까지 직접 리드합니다.
             </p>
-            <div class="mt-8 flex justify-center gap-4">
-                <span class="px-4 py-2 bg-white/20 rounded-full text-sm">10 Projects</span>
-                <span class="px-4 py-2 bg-white/20 rounded-full text-sm">Python</span>
-                <span class="px-4 py-2 bg-white/20 rounded-full text-sm">JavaScript</span>
-                <span class="px-4 py-2 bg-white/20 rounded-full text-sm">GIS/Maps</span>
+            <p class="text-md text-gray-400 max-w-2xl mx-auto">
+                교통 · 물류 · 모빌리티 · 수소 인프라
+            </p>
+
+            <!-- CTA Button to About -->
+            <div class="mt-8">
+                <a href="about.html" class="inline-flex items-center gap-2 px-6 py-3 bg-primary/20 border border-primary/50 rounded-full text-primary hover:bg-primary hover:text-white transition-all duration-300 group">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <span class="font-medium">경력 & 프로필 보기</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 bg-dark-card border border-primary/30 rounded-full text-sm text-gray-200">9 Projects</span>
+                <span class="px-4 py-2 bg-dark-card border border-primary/30 rounded-full text-sm text-gray-200">AI Professional</span>
+                <span class="px-4 py-2 bg-dark-card border border-primary/30 rounded-full text-sm text-gray-200">GIS</span>
+                <span class="px-4 py-2 bg-dark-card border border-primary/30 rounded-full text-sm text-gray-200">FMS</span>
+                <span class="px-4 py-2 bg-dark-card border border-primary/30 rounded-full text-sm text-gray-200">HRS</span>
+                <span class="px-4 py-2 bg-dark-card border border-primary/30 rounded-full text-sm text-gray-200">신사업</span>
             </div>
         </div>
     </header>
@@ -92,19 +142,19 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex gap-2 py-4 overflow-x-auto" id="filter-tabs">
                 <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-primary text-white" data-filter="all">
-                    All (10)
+                    All (9)
                 </button>
                 <button onclick="filterProjects('webapp')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-filter="webapp">
-                    Web Apps (4)
+                    Web Apps (5)
                 </button>
                 <button onclick="filterProjects('automation')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-filter="automation">
                     Automation (1)
                 </button>
                 <button onclick="filterProjects('analysis')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-filter="analysis">
-                    Analysis (3)
+                    Analysis (2)
                 </button>
                 <button onclick="filterProjects('platform')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200" data-filter="platform">
-                    Platforms (2)
+                    Platform (1)
                 </button>
             </div>
         </div>
@@ -121,20 +171,20 @@
                          class="card-image w-full h-full object-cover"
                          onerror="this.src='https://via.placeholder.com/400x225/003876/ffffff?text=Junggubus'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="category-badge bg-blue-100 text-blue-800">Web App</span>
                         <span class="text-yellow-500">Featured</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">내편 중구버스 노선 편집기</h3>
-                    <p class="text-gray-600 text-sm mb-4">서울시 중구 셔틀버스 노선 설계 웹 에디터. 드래그앤드롭, OSRM 경로 최적화, 실시간 검증 지원.</p>
+                    <p class="text-gray-600 text-sm mb-4 card-description">서울시 중구 셔틀버스 노선 설계 웹 에디터. 드래그앤드롭, OSRM 경로 최적화, 실시간 검증 지원.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
                         <span class="tech-badge">MapLibre GL</span>
                         <span class="tech-badge">JavaScript</span>
                         <span class="tech-badge">OSRM</span>
                         <span class="tech-badge">Python</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 card-buttons">
                         <a href="projects/junggubus.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
                         <a href="demos/junggubus-editor.html" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-blue-50 transition">Editor</a>
                         <a href="demos/junggubus-viewer.html" class="px-4 py-2 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition">Viewer</a>
@@ -149,18 +199,18 @@
                          class="card-image w-full h-full object-cover"
                          onerror="this.src='https://via.placeholder.com/400x225/10B981/ffffff?text=PT+Reports'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="category-badge bg-blue-100 text-blue-800">Web App</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">노선 프레젠테이션 뷰어</h3>
-                    <p class="text-gray-600 text-sm mb-4">버스 노선 비교, 시간표, 히트맵 시각화. 서울시 공무원 보고용 인터랙티브 뷰어.</p>
+                    <p class="text-gray-600 text-sm mb-4 card-description">버스 노선 비교, 시간표, 히트맵 시각화. 서울시 공무원 보고용 인터랙티브 뷰어.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
                         <span class="tech-badge">Leaflet.js</span>
                         <span class="tech-badge">Kakao API</span>
                         <span class="tech-badge">HTML/CSS</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 card-buttons">
                         <a href="projects/pt-reports.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
                         <a href="demos/pt-reports/index.html" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-blue-50 transition">Demo</a>
                     </div>
@@ -174,18 +224,18 @@
                          class="card-image w-full h-full object-cover"
                          onerror="this.src='https://via.placeholder.com/400x225/6366F1/ffffff?text=Shuttle+System'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="category-badge bg-blue-100 text-blue-800">Web App</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">중구 셔틀버스 관리 시스템</h3>
-                    <p class="text-gray-600 text-sm mb-4">Full-stack 교통 관리 플랫폼. 배치 작업, 버전 히스토리, 노선 비교 기능.</p>
+                    <p class="text-gray-600 text-sm mb-4 card-description">Full-stack 교통 관리 플랫폼. 배치 작업, 버전 히스토리, 노선 비교 기능.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
                         <span class="tech-badge">FastAPI</span>
                         <span class="tech-badge">PostgreSQL</span>
                         <span class="tech-badge">Mapbox GL</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 card-buttons">
                         <a href="projects/junggu-shuttle.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
                     </div>
                 </div>
@@ -198,19 +248,19 @@
                          class="card-image w-full h-full object-cover"
                          onerror="this.src='https://via.placeholder.com/400x225/EC4899/ffffff?text=Route+Builder'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="category-badge bg-blue-100 text-blue-800">Web App</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">쿠팡 FC 노선 빌더 v1.0</h3>
-                    <p class="text-gray-600 text-sm mb-4">쿠팡 물류센터(FC) 셔틀버스 노선 생성 시스템. 41개 FC, 4,274개 정류장, Docker OSRM.</p>
+                    <p class="text-gray-600 text-sm mb-4 card-description">쿠팡 물류센터(FC) 셔틀버스 노선 생성 시스템. 41개 FC, 4,274개 정류장, Docker OSRM.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
                         <span class="tech-badge">Flask</span>
                         <span class="tech-badge">Leaflet.js</span>
                         <span class="tech-badge">Docker</span>
                         <span class="tech-badge">OSRM</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 card-buttons">
                         <a href="projects/route-builder.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
                         <a href="https://route-builder.onrender.com" target="_blank" class="px-4 py-2 border border-pink-500 text-pink-500 rounded-lg hover:bg-pink-50 transition">Live Demo</a>
                         <a href="demos/coupang-route.html" class="px-4 py-2 border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-50 transition">Output</a>
@@ -225,19 +275,19 @@
                          class="card-image w-full h-full object-cover"
                          onerror="this.src='https://via.placeholder.com/400x225/8B5CF6/ffffff?text=Optimizer'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="category-badge bg-purple-100 text-purple-800">Automation</span>
                         <span class="text-yellow-500">Featured</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">3단계 노선 최적화 파이프라인</h3>
-                    <p class="text-gray-600 text-sm mb-4">Hungarian Algorithm 기반 노선 매칭. 18개 지역, 69개 FC, 1,556개 노선 처리.</p>
+                    <p class="text-gray-600 text-sm mb-4 card-description">Hungarian Algorithm 기반 노선 매칭. 18개 지역, 69개 FC, 1,556개 노선 처리.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
                         <span class="tech-badge">Python</span>
                         <span class="tech-badge">NetworkX</span>
                         <span class="tech-badge">Hungarian Algo</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 card-buttons">
                         <a href="projects/route-optimizer.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
                     </div>
                 </div>
@@ -250,44 +300,46 @@
                          class="card-image w-full h-full object-cover"
                          onerror="this.src='https://via.placeholder.com/400x225/059669/ffffff?text=H2+Infra'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="category-badge bg-green-100 text-green-800">Analysis</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">수소충전소 분석 대시보드</h3>
-                    <p class="text-gray-600 text-sm mb-4">고객 분석, BEP 시뮬레이션, 월별 트렌드 분석이 가능한 인터랙티브 대시보드.</p>
+                    <p class="text-gray-600 text-sm mb-4 card-description">고객 분석, BEP 시뮬레이션, 월별 트렌드 분석이 가능한 인터랙티브 대시보드.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
                         <span class="tech-badge">Chart.js</span>
                         <span class="tech-badge">Leaflet</span>
                         <span class="tech-badge">Tailwind</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 card-buttons">
                         <a href="projects/hydrogen-infra.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
                         <a href="demos/hrs-dashboard.html" class="px-4 py-2 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition">Dashboard</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Project 8: krural (Rural Mobility) -->
-            <article class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-category="analysis">
+            <!-- Project 8: 일버스 (1-bus.com) -->
+            <article class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-category="webapp">
                 <div class="aspect-video overflow-hidden bg-gray-200">
-                    <img src="images/projects/rural-mobility/main.png" alt="Rural Mobility Proposals"
+                    <img src="images/projects/1bus/main.png" alt="일버스 플랫폼"
                          class="card-image w-full h-full object-cover"
-                         onerror="this.src='https://via.placeholder.com/400x225/0891B2/ffffff?text=Rural+Mobility'">
+                         onerror="this.src='https://via.placeholder.com/400x225/3B82F6/ffffff?text=1BUS'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
-                        <span class="category-badge bg-green-100 text-green-800">Analysis</span>
+                        <span class="category-badge bg-blue-100 text-blue-800">Web Platform</span>
+                        <span class="category-badge bg-yellow-100 text-yellow-800">MVP</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">농촌 모빌리티 정부 제안</h3>
-                    <p class="text-gray-600 text-sm mb-4">원더모빌리티 DRT 서비스 정부 제안서. 4개 부처별 맞춤 제안 생성.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">일버스 (1-bus.com)</h3>
+                    <p class="text-gray-600 text-sm mb-4 card-description">전세버스 종합 플랫폼. 견적 요청, 기사 구인/구직, 버스매매를 노코드로 빠르게 구축.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">python-docx</span>
-                        <span class="tech-badge">Data Analysis</span>
+                        <span class="tech-badge">아임웹</span>
+                        <span class="tech-badge">노코드</span>
+                        <span class="tech-badge">MVP</span>
                     </div>
-                    <div class="flex gap-2">
-                        <a href="projects/rural-mobility.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
+                    <div class="flex gap-2 card-buttons">
+                        <a href="projects/1bus.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
+                        <a href="https://1-bus.com" target="_blank" class="px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition">Website</a>
                     </div>
                 </div>
             </article>
@@ -299,17 +351,17 @@
                          class="card-image w-full h-full object-cover"
                          onerror="this.src='https://via.placeholder.com/400x225/DC2626/ffffff?text=Bizno'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="category-badge bg-green-100 text-green-800">Analysis</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">계약 관리 자동화</h3>
-                    <p class="text-gray-600 text-sm mb-4">정부 조달 계약 문서 분석 및 수정 추적 시스템.</p>
+                    <p class="text-gray-600 text-sm mb-4 card-description">정부 조달 계약 문서 분석 및 수정 추적 시스템.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
                         <span class="tech-badge">Python</span>
                         <span class="tech-badge">Document Analysis</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 card-buttons">
                         <a href="projects/bizno.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
                     </div>
                 </div>
@@ -322,44 +374,22 @@
                          class="card-image w-full h-full object-cover"
                          onerror="this.src='https://via.placeholder.com/400x225/F97316/ffffff?text=OnBus'">
                 </div>
-                <div class="p-6">
+                <div class="p-6 card-content">
                     <div class="flex items-center gap-2 mb-3">
                         <span class="category-badge bg-orange-100 text-orange-800">Platform</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">OnBus 운송 플랫폼</h3>
-                    <p class="text-gray-600 text-sm mb-4">원더셔틀, 캐치락 SaaS 연동 운송 플랫폼 기술 문서.</p>
+                    <p class="text-gray-600 text-sm mb-4 card-description">원더셔틀, 캐치락 SaaS 연동 운송 플랫폼 기술 문서.</p>
                     <div class="flex flex-wrap gap-1 mb-4">
                         <span class="tech-badge">Platform Design</span>
                         <span class="tech-badge">SaaS</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 card-buttons">
                         <a href="projects/onbus-platform.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Project 11: Wicked -->
-            <article class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-category="platform">
-                <div class="aspect-video overflow-hidden bg-gray-200">
-                    <img src="images/projects/wicked/main.png" alt="Wicked Sponsorship"
-                         class="card-image w-full h-full object-cover"
-                         onerror="this.src='https://via.placeholder.com/400x225/7C3AED/ffffff?text=Wicked'">
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="category-badge bg-orange-100 text-orange-800">Platform</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">위키드 스폰서십 관리</h3>
-                    <p class="text-gray-600 text-sm mb-4">뮤지컬 위키드 스폰서십 계약 및 파트너십 문서 관리.</p>
-                    <div class="flex flex-wrap gap-1 mb-4">
-                        <span class="tech-badge">Contract Mgmt</span>
-                        <span class="tech-badge">Partnership</span>
-                    </div>
-                    <div class="flex gap-2">
-                        <a href="projects/wicked.html" class="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Details</a>
-                    </div>
-                </div>
-            </article>
 
         </div>
     </main>
