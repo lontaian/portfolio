@@ -12,3 +12,14 @@ node_modules/
 # Local development
 *.log
 *.tmp
+
+# Local Netlify folder
+.netlify
+
+# Claude Code / MCP
+.claude/
+.playwright-mcp/
+.serena/
+
+# Windows artifacts
+nul
