@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <title>About | Portfolio</title>
     <meta name="description" content="신뢰할 수 있는 리더 - 국내 1위 전세버스 IT 총괄, 100억 수소충전소 프로젝트, 26년 경력">
 
@@ -24,10 +27,16 @@
         }
     </script>
 
-    <!-- Pretendard Font -->
+    <!-- Pretendard Font (Optimized) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
     <style>
+        /* Font display optimization */
+        @font-face {
+            font-family: 'Pretendard';
+            font-display: swap;
+        }
         body { font-family: 'Pretendard', sans-serif; }
         .skill-bar {
             height: 8px;
